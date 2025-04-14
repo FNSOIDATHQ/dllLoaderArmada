@@ -7,6 +7,7 @@
 #include <windows.h>
 #include <fstream>
 #include <string>
+#include <map>
 
 #define DLL_EXPORT __declspec(dllexport)
 
@@ -16,8 +17,15 @@ extern "C"
 {
 #endif
 
+//dummy functions for hook
 DLL_EXPORT  int LowLevelKeyboardProc();
 DLL_EXPORT  void SetHookID();
+
+
+
+DLL_EXPORT  HINSTANCE loadDll(std::string);
+DLL_EXPORT void callFunction(HINSTANCE,std::string);
+
 #ifdef __cplusplus
 }
 #endif
